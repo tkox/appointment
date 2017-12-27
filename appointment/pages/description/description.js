@@ -22,20 +22,16 @@ Page({
         isScroll: false,
         toView: 'hand'
     },
-    onReady() {
+    onLoad() {
         var self = this;
         wx.request({
-            url: 'http://localhost/www/test.txt',
+            url: 'http://localhost/www/test.json',
             success(res) {
                 self.setData({
                     detail: res.data
                 })
             }
         });
-    },
-
-    onLoad() {
-        console.log(this.data.detail);
     },
     switchTab(e) {
         const self = this;

@@ -1,5 +1,4 @@
-<view class="title">
-    酵素浴项目</view>
+<view class="title">酵素浴项目</view>
 <view class="title-item">米糠酵素浴</view>
 <view class="title-discription">
     <text>理疗项目</text>
@@ -8,7 +7,7 @@
 
 <view class="text-middle">手工舒缓</view>
 <view class="item">
-    <view>中医全身经络</view>
+    <view class="fixed">中医全身经络</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -17,7 +16,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>全身淋巴排毒</view>
+    <view class="fixed">全身淋巴排毒</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -26,7 +25,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>尤兰乳腺滋养</view>
+    <view class="fixed">尤兰乳腺滋养</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -35,7 +34,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>背部三焦舒缓</view>
+    <view class="fixed">背部三焦舒缓</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -44,7 +43,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item-bottom">
-    <view>腿部淋巴排毒</view>
+    <view class="fixed">腿部淋巴排毒</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -55,7 +54,7 @@
 
 <view class="text-middle">牛角松筋</view>
 <view class="item">
-    <view>头部疏通松筋</view>
+    <view class="fixed">头部疏通松筋</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -64,7 +63,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>面部微雕松筋</view>
+    <view class="fixed">面部微雕松筋</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -73,7 +72,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>肩筋护理松筋</view>
+    <view class="fixed">肩筋护理松筋</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -82,7 +81,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>腰臀护理松筋</view>
+    <view class="fixed">腰臀护理松筋</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -91,7 +90,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item-bottom">
-    <view>肠胃调整松筋</view>
+    <view class="fixed">肠胃调整松筋</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -102,7 +101,7 @@
 
 <view class="text-middle">生命之脉</view>
 <view class="item">
-    <view>脉能头部调整</view>
+    <view class="fixed">脉能头部调整</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -111,7 +110,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>脉能面部紧致提升</view>
+    <view class="fixed">脉能面部紧致提升</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -120,7 +119,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>脉能腰臀调理</view>
+    <view class="fixed">脉能腰臀调理</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -129,7 +128,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-    <view>脉能肩颈调理</view>
+    <view class="fixed">脉能肩颈调理</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -138,7 +137,7 @@
     <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
 <view class="item">
-        <view>脉能腿部调理</view>
+        <view class="fixed">脉能腿部调理</view>
         <view class="stepper">
             <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
             <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -147,7 +146,7 @@
         <image bindtap="description" class="images" src="../../images/rignt.png"></image>
     </view>
 <view class="item-bottom">
-    <view>脉能肠胃调整</view>
+    <view class="fixed">脉能肠胃调整</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -158,7 +157,7 @@
 
 <view class="text-middle">其他</view>
 <view class="item">
-        <view>拔罐</view>
+        <view class="fixed">拔罐</view>
         <view class="stepper">
             <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
             <input type="number" bindchange="bindManual" value="{{num}}" />
@@ -167,7 +166,7 @@
         <image bindtap="description" class="images" src="../../images/rignt.png"></image>
     </view>
 <view class="item-bottom">
-    <view>刮痧</view>
+    <view class="fixed">刮痧</view>
     <view class="stepper">
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <input type="number" bindchange="bindManual" value="{{num}}" />

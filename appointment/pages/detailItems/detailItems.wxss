@@ -92,3 +92,7 @@
     width: 50rpx;
     height: 50rpx;
 }
+
+.fixed {
+    width: 144px;
+}

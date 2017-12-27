@@ -29,7 +29,7 @@
             <image bindtap="detailItems" class="img" src="../../images/rignt.png"></image>
         </view>
         <view class="item">
-            <view>其他</view>
+            <view>其他项目</view>
             <image bindtap="detailItems" class="img" src="../../images/rignt.png"></image>
         </view>
     </view>
