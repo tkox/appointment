@@ -5,47 +5,15 @@
     <text class="text-mini">(以下项目每次建议不超过2项)</text>
 </view>
 
-<view class="text-middle">手工舒缓</view>
-<view class="item" wx:for="{{items}}" wx:if="{{index <= 4}}" >
-    <view class="fixed">{{item.name}}</view>
-    <view class="stepper">
-        <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
-        <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
-        <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
+<view wx:for="{{title}}" wx:key="{{title}}" wx:for-index="idx">
+    <view class="text-middle">{{item}}</view>
+    <view class="item" wx:for="{{items}}" wx:if="{{idx == item.id}}">
+        <view class="fixed">{{item.name}}</view>
+        <view class="stepper">
+            <text class="{{item.minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
+            <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
+            <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
+        </view>
+        <image bindtap="description" class="images" src="../../images/rignt.png"></image>
     </view>
-    <image bindtap="description" class="images" src="../../images/rignt.png"></image>
-</view>
-
-<view class="text-middle">牛角松筋</view>
-<view class="item" wx:for="{{items}}" wx:if="{{index > 4 && index <= 9}}">
-    <view class="fixed">{{item.name}}</view>
-    <view class="stepper">
-        <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
-        <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
-        <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
-    </view>
-    <image bindtap="description" class="images" src="../../images/rignt.png"></image>
-</view>
-
-<view class="text-middle">生命之脉</view>
-<view class="item" wx:for="{{items}}" wx:if="{{index > 9 && index <= 15}}">
-    <view class="fixed">{{item.name}}</view>
-    <view class="stepper">
-        <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
-        <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
-        <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
-    </view>
-    <image bindtap="description" class="images" src="../../images/rignt.png"></image>
-</view>
-
-
-<view class="text-middle">其他</view>
-<view class="item" wx:for="{{items}}" wx:if="{{index > 15}}">
-    <view class="fixed">{{item.name}}</view>
-    <view class="stepper">
-        <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
-        <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
-        <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
-    </view>
-    <image bindtap="description" class="images" src="../../images/rignt.png"></image>
 </view>
