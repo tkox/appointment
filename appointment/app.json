@@ -1,12 +1,40 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/order/order",
+    "pages/record/record",
+    "pages/member/member",
+    "pages/jsy/jsy",
+    "pages/detail/detail",
+    "pages/detailItems/detailItems",
+    "pages/description/description",
+    "pages/QRcard/QRcard",
+    "pages/shopHistory/shopHistory",
+    "pages/discount/discount",
+    "pages/userStored/userStored",
+    "pages/userMessage/userMessage"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "跬步堂",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#b7b7b7",
+    "selectedColor": "#AB956D",
+    "borderStyle": "#f5f5f5",
+    "backgroundColor": "#f5f5f5",
+    "list": [{
+      "pagePath": "pages/order/order",
+      "text": "预约"
+    },
+    {
+      "pagePath": "pages/record/record",
+      "text": "记录"
+    },
+    {
+      "pagePath": "pages/member/member",
+      "text": "我的"
+    }]
   }
 }

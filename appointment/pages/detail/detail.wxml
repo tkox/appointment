@@ -1,0 +1,36 @@
+<view class="order">
+    <view class="order-title">预约项目</view>
+    <view>酵素浴</view>
+</view>
+
+<view class="order">
+    <view class="order-title">预约席位</view>
+    <view>1位</view>
+</view>
+
+<view class="order">
+    <view class="order-title">预约时间</view>
+    <view>2017-12-26 8:00-9:00</view>
+</view>
+
+<view class="order-items">
+    <view class="order-title">预约项目</view>
+    <view class="items">
+        <view class="item">
+            <view>手工舒缓</view>
+            <image bindtap="detailItems" class="img" src="../../images/rignt.png"></image>
+        </view>
+        <view class="item">
+            <view>牛角松筋</view>
+            <image bindtap="detailItems" class="img" src="../../images/rignt.png"></image>
+        </view>
+        <view class="item">
+            <view>生命之脉</view>
+            <image bindtap="detailItems" class="img" src="../../images/rignt.png"></image>
+        </view>
+        <view class="item">
+            <view>其他</view>
+            <image bindtap="detailItems" class="img" src="../../images/rignt.png"></image>
+        </view>
+    </view>
+</view>

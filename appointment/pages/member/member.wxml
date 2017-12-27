@@ -1,0 +1,48 @@
+<!--pages/member/member.wxml-->
+<view class = "clubCardUp" bindtap = "QRcardtab">
+    <view class = "cardM">
+        <image class = "kuiImage" src="../../images/kuibutang.png" ></image>
+        <view class = "cardMes">
+            <text class = "cardText">电子会员</text>
+            <text class = "cardText">会员等级：{{clubClass}}</text>
+            <text class = "cardText">会员号：{{clubNumber}}</text>
+        </view>
+    </view>  
+    <image class = "QRIm" src="../../images/QR.png" /> 
+</view>
+<view class = "clubCardDown" bindtap = "QRcardtab">
+    <text class = "cardT">电子会员卡</text>
+    <text class = "cardT">有效期：{{clubValidLimit}}</text>
+</view>
+<view class = "tip">
+    <view class = "therapist">
+        <text class = "tipT">私人理疗师</text>
+        <text class = "tipT">{{clubTherapistN}}</text>
+    </view>
+    <view class = "suggest">
+        <text class = "tipT">建议酵素浴次数</text>
+        <text class = "tipT">{{clubSuggestNum}}次</text>
+    </view>
+</view>
+<view class = "list">
+    <view class = "listS" bindtap = "userMestab">
+        <text class = "listT">个人信息</text>
+        <text class = "listTC">查看  ></text>
+    </view>
+    <view class = "listS" bindtap = "userStoredtab">
+        <text class = "listT">储值</text>
+        <text class = "listTC">{{clubStoredValue}}元  ></text>
+    </view>
+    <view class = "listS" bindtap = "discounttab">
+        <text class = "listT">优惠券</text>
+        <text class = "listTC">{{clubCouponNum}}张  ></text>
+    </view>
+    <view class = "listS" bindtap = "shopHistorytab">
+        <text class = "listT">消费记录</text>
+        <text class = "listTC">{{clubShopNum}}笔  ></text>
+    </view>
+    <view class = "listS1">
+        <text class = "listT">关于跬步堂</text>
+        <text class = "listTC">  ></text>
+    </view>
+</view>

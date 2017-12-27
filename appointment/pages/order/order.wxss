@@ -1,0 +1,70 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 2rpx solid #f0f0f0;
+}
+
+.tab-button-active {
+    padding: 10rpx;
+    color: #f00;
+    font-size: 24rpx;
+    border-bottom: 4rpx solid #f00;
+}
+
+.tab-button {
+    padding: 10rpx;
+    font-size: 24rpx;
+    color: #000;
+}
+
+.order-title {
+    display: flex;
+    justify-content: space-between;
+    height: 60rpx;
+    margin: 10rpx;
+    padding: 10rpx;
+}
+
+.order-seat {
+    display: flex;
+    justify-content: space-between;
+    height: 60rpx;
+    margin: 10rpx;
+    padding: 10rpx;
+}
+
+.order-time {
+    display:  flex;
+    height: 60rpx;
+    margin: 10rpx;
+    padding: 10rpx;
+}
+
+.first-three {
+    display: flex;
+    margin: 20rpx;
+}
+
+.middle-three {
+    display: flex;
+    margin: 20rpx;
+}
+
+.last-three {
+    display: flex;
+    margin: 20rpx;
+}
+
+.order-time-detail {
+    margin: 10rpx;
+    padding: 10rpx;
+    border: 2rpx solid #000;
+    border-radius: 40rpx;
+}
+
+.seat-count {
+    padding-left: 80rpx;
+    padding-right: 80rpx;
+}
+

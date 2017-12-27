@@ -1,0 +1,33 @@
+.order {
+    display: flex;
+    justify-content: space-between;
+    height: 60rpx;
+    margin-left: 60rpx;
+    margin-right: 60rpx;
+    padding: 10rpx;
+}
+
+.order-title {
+    color: #cfbfbf;
+}
+
+.order-items {
+    display: flex;
+    height: 60rpx;
+    margin-left: 60rpx;
+    padding: 10rpx;
+}
+
+.items {
+    margin-left: 80rpx;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 20rpx;
+}
+
+.img {
+    width: 50rpx;
+    height: 50rpx;
+}
