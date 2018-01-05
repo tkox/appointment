@@ -1,12 +1,3 @@
-<template name="msgItem">
-    <view class="order-time-detail" bindtap="detail">
-        <view>8:00 - 9:00</view>
-        <view>可预约席位</view>
-        <view class="seat-count">{{idx}}</view>
-    </view>
-</template>
-
-
 <view class="header">
     <block wx:for="{{flag}}">
         <text bindtap="week" class="tab-button{{flag[index].isChoosed ? '-active' : ''}}" data-index="{{index}}">{{item.content}}</text>
@@ -15,35 +6,34 @@
 
 <view class="order-title">
     <view>预约项目：</view>
-    <text bindtap="title">酵素浴</text>
+    <text>酵素浴</text>
+    <image bindtap="title" class="img" src="../../images/right.png"></image>
 </view>
 
 <view class="order-seat">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
         <view class="picker">
-            预约席位：{{array[index]}}
+            <text>预约席位：{{array[index]}}</text>
+            <image class="img" src="../../images/down.png"></image>
         </view>
     </picker>
 </view>
 
-
+<view class="order-time">
+    <view>预约时间： </view>
+    <view>{{day}}</view>
+</view>
 
 <view class="order-time">预约时间段</view>
 
-<view class="first-three">
-    <block wx:for="{{itemArr}}" wx:key="id" wx:if="{{index < 3}}">
-        <template is="msgItem" data="{{...itemArr[index]}}" />
-    </block>
-</view>
-
-<view class="middle-three">
-    <block wx:for="{{itemArr}}" wx:key="id" wx:if="{{index > 2 && index < 6}}">
-        <template is="msgItem" data="{{...itemArr[index]}}" />
-    </block>
-</view>
-
-<view class="last-three">
-    <block wx:for="{{itemArr}}" wx:key="id" wx:if="{{index > 5 && index < 9}}">
-        <template is="msgItem" data="{{...itemArr[index]}}" />
-    </block>
+<view wx:for="{{id}}" wx:for-index="idx">
+    <view class="item">
+        <block wx:for="{{itemArr}}"  wx:if="{{item.id == idx}}">
+            <view class="order-time-detail" data-index="{{index}}" bindtap="detail">
+                <view class="order-text">{{item.time}}</view>
+                <view class="order-text">可预约席位</view>
+                <view class="seat-count">{{item.idx}}</view>
+            </view>
+        </block>
+    </view>
 </view>

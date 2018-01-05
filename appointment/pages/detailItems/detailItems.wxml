@@ -14,6 +14,6 @@
             <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
             <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
         </view>
-        <image bindtap="description" class="images" src="../../images/rignt.png"></image>
+        <image bindtap="description" class="img" src="../../images/right.png"></image>
     </view>
 </view>

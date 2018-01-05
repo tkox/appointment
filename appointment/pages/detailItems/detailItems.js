@@ -31,7 +31,7 @@ Page({
             temp[index].num--;
         }
 
-        temp[index].minusStatus = num > 0 ? 'normal' : 'disabled';
+        temp[index].minusStatus = num === 0 ? 'normal' : 'disabled';
         this.setData({
             items: temp,
         });

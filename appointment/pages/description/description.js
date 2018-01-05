@@ -22,8 +22,8 @@ Page({
         isScroll: false,
         toView: 'hand'
     },
-    onLoad() {
-        var self = this;
+    onShow() {
+        let self = this;
         wx.request({
             url: 'http://localhost/www/test.json',
             success(res) {
