@@ -95,7 +95,8 @@ Page({
         array: ['1位', '2位', '3位'],
         index: 0,
         leapYear: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-        norYear: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        norYear: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        day: '',
     },
     onLoad: function (e) {
         let flag = this.data.flag;
@@ -103,32 +104,44 @@ Page({
         let date = new Date()
         let week = date.getDay();
         let year = date.getFullYear();
-        let month = date.getMonth() + 1
-        let day = date.getDate()
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
 
-        // let monthLength = 0;
-        // if(year % 400 == 0 || (year % 400 != 0 && year % 4 == 0)) {
-        //     monthLength = leapYear[month - 1]
-        // } else {
-        //     monthLength = norYear[month - 1]
-        // }
+        let monthLength = 0;
+        let leapFlag = false;
+        if(year % 400 == 0 || (year % 400 != 0 && year % 4 == 0)) {
+            leapFlag = true;
+            monthLength = this.data.leapYear[month - 1];
+        } else {
+            monthLength = this.data.norYear[month - 1];
+        }
 
-        let weekTemp = (week - 1) % 7;
-        let monthTemp = month % 13;
+        let i = week - 1;
         let j = 0;
 
-        flag[weekTemp].day = year + '-' + month + '-' + 'day';
-        // for(; j < 7; j++, i++){
-        //     if(day ==  monthLength){
-        //         day = 1;
-        //     }
-        // }
-        
+        flag[i].day = year + '-' + month + '-' + day;
 
+        for(; j < 6; j++, i++){
+            if(day ===  monthLength){
+                day = 1;
+                if(month < 12){
+                    month = 1;
+                    year += 1;
+                }else{
+                    month += 1;
+                } 
+            }else{
+                day += 1;
+            } 
+            
+            flag[(i + 1) % 7].day = year + '-' + month + '-' + day;
+        }
+
+        day = flag[week - 1].day;
         flag[week - 1].isChoosed = true;
         this.setData({
-            // day: time,
-            flag: temp
+            day: day,
+            flag: flag
         })
     },
 
@@ -149,11 +162,14 @@ Page({
         let idx = e.currentTarget.dataset.index;
         let temp = this.data.flag;
         let i = 0;
+        let day = temp[idx].day;
         for (; i < 7; i++)
             temp[i].isChoosed = false;
         temp[idx].isChoosed = true;
+    
         this.setData({
-            flag: temp
+            flag: temp,
+            day: day
         })
     },
 
