@@ -1,16 +1,18 @@
 Page({
     data: {
+        seat: '1位',
         day: '',
         time: '',
-        seat: '1位',
     },
 
     onShow() {
-        let time = wx.getStorageSync('time');
         let seat = wx.getStorageSync('seat');
+        let day = wx.getStorageSync('date');
+        let time = wx.getStorageSync('time');
         this.setData({
+            seat: seat,
+            day: day,
             time: time,
-            seat: seat
         })
     },
 
