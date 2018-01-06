@@ -28,10 +28,15 @@
 
 .order-seat {
     display: flex;
-    justify-content: space-between;
     height: 60rpx;
     margin: 10rpx;
     padding: 10rpx;
+}
+
+.img {
+    padding-left: 20rpx;
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .order-time {
@@ -41,26 +46,23 @@
     padding: 10rpx;
 }
 
-.first-three {
-    display: flex;
-    margin: 20rpx;
-}
-
-.middle-three {
-    display: flex;
-    margin: 20rpx;
-}
-
-.last-three {
+.item {
     display: flex;
     margin: 20rpx;
 }
 
 .order-time-detail {
+    width: 108px;
+    height: 66px;
     margin: 10rpx;
     padding: 10rpx;
     border: 2rpx solid #000;
     border-radius: 40rpx;
+}
+
+.order-text {
+    font-size: 35rpx;
+    text-align: center;
 }
 
 .seat-count {
