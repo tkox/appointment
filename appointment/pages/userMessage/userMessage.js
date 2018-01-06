@@ -50,58 +50,56 @@ Page({
   },
 
   saveTab:function(e){ 
-    app.data.userMessageA[0].name=this.data.userName;
-    app.data.userMessageA[0].sex=this.data.userSex;
-    app.data.userMessageA[0].age=this.data.userAge;
-    app.data.userMessageA[0].marriage=this.data.userMarriage;
-    app.data.userMessageA[0].phoneNumber=this.data.userNumber;
-    app.data.userMessageA[0].health=this.data.userHealth;
-    app.data.userMessageA[0].rNumber=this.data.rNumber;
-    app.data.userMessageA[0].remark=this.data.userRemark;
-    console.log("保存成功"); 
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({userName : app.data.userMessageA[0].name});
-    this.setData({userSex : app.data.userMessageA[0].sex});
-    this.setData({userAge : app.data.userMessageA[0].age});
-    this.setData({userMarriage : app.data.userMessageA[0].marriage});
-    this.setData({userNumber : app.data.userMessageA[0].phoneNumber});
-    this.setData({userHealth : app.data.userMessageA[0].health});
-    this.setData({rNumber : app.data.userMessageA[0].rNumber});
-    this.setData({userRemark : app.data.userMessageA[0].remark});
-    console.log("用户数据载入"); 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+    wx.request({
+      url: 'http://localhost/kuibutang/api.php',
+      data: {
+        a: 'save',
+        member_id: '62218000',
+        name: this.data.userName,
+        sex: this.data.userSex,
+        birthdate: this.data.userAge,
+        martial_status: this.data.userMarriage,
+        phone: this.data.userNumber,
+        status: this.data.userHealth,
+        referee: this.data.userrNumber,
+        commet: this.data.userRemark
+      },
+      method: 'GET',
+      success: res => {
+          console.log("保存成功")
+          console.log(res.data)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.request({
+      url: 'http://localhost/kuibutang/api.php',
+      data: {
+        a: 'info',
+        member_id: '62218000'
+      },
+      method: 'GET',
+      success:res=> {
+        console.log(res.data)
+          this.setData({
+            userName: res.data.data.name,
+            userSex: res.data.data.sex,
+            userAge: res.data.data.birthdate,
+            userMarriage: res.data.data.marital_status,
+            userNumber: res.data.data.phone,
+            userHealth: res.data.data.status,
+            userrNumber: res.data.data.referee,
+            userRemark: res.data.data.commet
+                      })
+      }
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.6.6",
 	"appid": "touristappid",
-	"projectname": "appointment",
+	"projectname": "%E6%97%A0appid",
 	"condition": {
 		"search": {
 			"current": -1,
