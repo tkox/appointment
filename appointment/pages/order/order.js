@@ -118,8 +118,17 @@ Page({
 
         let i = week - 1;
         let j = 0;
+        if(month < 10){
+            flag[i].day = year + '-0' + month; 
+        }else{
+            flag[i].day = year + '-' + month;
+        }
 
-        flag[i].day = year + '-' + month + '-' + day;
+        if(day < 10){
+            flag[i].day += '-0' + day;
+        }else{
+            flag[i].day += '-' + day;
+        }
 
         for(; j < 6; j++, i++){
             if(day ===  monthLength){
@@ -134,7 +143,18 @@ Page({
                 day += 1;
             } 
             
-            flag[(i + 1) % 7].day = year + '-' + month + '-' + day;
+            if(month < 10){
+                flag[(i + 1) % 7].day = year + '-0' + month; 
+            }else{
+                flag[(i + 1) % 7].day = year + '-' + month;
+            }
+    
+            if(day < 10){
+                flag[(i + 1) % 7].day += '-0' + day;
+            }else{
+                flag[(i + 1) % 7].day += '-' + day;
+            }
+            // flag[].day = year + '-' + month + '-' + day;
         }
 
         day = flag[week - 1].day;
