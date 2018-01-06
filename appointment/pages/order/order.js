@@ -47,41 +47,41 @@ Page({
         ],
         itemArr: [{
                 id: 0,
-                idx: 1,
+                seat: 1,
                 time: '8:00-9:00'
             }, {
                 id: 0,
-                idx: 3,
+                seat: 3,
                 time: '9:00-10:00'
             }, {
                 id: 0,
-                idx: 2,
+                seat: 2,
                 time: '10:00-11:00'
             },
             {
                 id: 1,
-                idx: 0,
+                seat: 0,
                 time: '11:00-12:00'
             }, {
                 id: 1,
-                idx: 0,
+                seat: 0,
                 time: '13:00-14:00'
             }, {
                 id: 1,
-                idx: 0,
+                seat: 0,
                 time: '14:00-15:00'
             },
             {
                 id: 2,
-                idx: 3,
+                seat: 3,
                 time: '15:00-16:00'
             }, {
                 id: 2,
-                idx: 3,
+                seat: 3,
                 time: '16:00-17:00'
             }, {
                 id: 2,
-                idx: 1,
+                seat: 1,
                 time: '17:00-18:00'
             },
         ],
@@ -150,6 +150,7 @@ Page({
         let timeTemp = this.data.itemArr[index].time;
         try {
             wx.setStorageSync('time', timeTemp);
+            wx.setStorageSync('date', this.data.day);
         } catch (e) {
             console.log(e);
         }

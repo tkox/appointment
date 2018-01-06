@@ -32,7 +32,7 @@
             <view class="order-time-detail" data-index="{{index}}" bindtap="detail">
                 <view class="order-text">{{item.time}}</view>
                 <view class="order-text">可预约席位</view>
-                <view class="seat-count">{{item.idx}}</view>
+                <view class="seat-count">{{item.seat}}</view>
             </view>
         </block>
     </view>
