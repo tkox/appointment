@@ -11,20 +11,11 @@
     color: #cfbfbf;
 }
 
-.order-items {
-    display: flex;
-    height: 60rpx;
-    margin-left: 60rpx;
-    padding: 10rpx;
-}
-
 .items {
-    margin-left: 80rpx;
-}
-
-.item {
     display: flex;
+    justify-content: space-around;
     margin-bottom: 20rpx;
+    margin-left: 80rpx;
 }
 
 .img {

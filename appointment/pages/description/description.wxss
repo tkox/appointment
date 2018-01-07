@@ -4,19 +4,16 @@ page{
     font-size: 32rpx;
 }
 
-page,.main{
-    height: 100%;
-}
-
 .categroy-left{
     float: left;
-    width: 150rpx;
+    width: 250rpx;
     height: 100%;
     border-right: 1px solid #ddd;
     box-sizing: border-box;
 }
+
 .categroy-left .cate-list{
-    height: 90rpx;
+    /* height: 90rpx; */
     line-height: 90rpx;
     text-align: center;
     border-left: 3px solid #fff;
@@ -26,6 +23,16 @@ page,.main{
     color: #AB956D;
     border-color: #AB956D;
 }
+
+.categroy-left .itemArr {
+    font-size: 24rpx;
+    color: red;
+    /* height: 90rpx; */
+    line-height: 90rpx;
+    text-align: center;
+    border-left: 3px solid #fff;
+}
+
 .categroy-right{
     float: right;
     width: 600rpx;

@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/description/description",
     "pages/order/order",
     "pages/record/record",
     "pages/member/member",
     "pages/jsy/jsy",
     "pages/detail/detail",
     "pages/detailItems/detailItems",
-    "pages/description/description",
     "pages/QRcard/QRcard",
     "pages/shopHistory/shopHistory",
     "pages/discount/discount",

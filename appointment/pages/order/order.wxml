@@ -13,7 +13,7 @@
 <view class="order-seat">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
         <view class="picker">
-            <text>预约席位：{{array[index]}}</text>
+            <text>预约席位：{{array[index]}}位</text>
             <image class="img" src="../../images/down.png"></image>
         </view>
     </picker>
@@ -29,7 +29,7 @@
 <view wx:for="{{id}}" wx:for-index="idx">
     <view class="item">
         <block wx:for="{{itemArr}}"  wx:if="{{item.id == idx}}">
-            <view class="order-time-detail" data-index="{{index}}" bindtap="detail">
+            <view class="order-time-detail{{itemArr[index].seat >= seat ? '-active' : ''}}" data-index="{{index}}" bindtap="detail">
                 <view class="order-text">{{item.time}}</view>
                 <view class="order-text">可预约席位</view>
                 <view class="seat-count">{{item.seat}}</view>

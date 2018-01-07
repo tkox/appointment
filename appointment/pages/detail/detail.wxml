@@ -5,7 +5,7 @@
 
 <view class="order">
     <view class="order-title">预约席位</view>
-    <view>{{seat}}</view>
+    <view>{{seat}}位</view>
 </view>
 
 <view class="order">
@@ -13,24 +13,13 @@
     <view>{{day}} {{time}}</view>
 </view>
 
-<view class="order-items">
+<view class="order">
     <view class="order-title">预约项目</view>
+</view>
+
+<view wx:for="{{detail}}">
     <view class="items">
-        <view class="item">
-            <view>手工舒缓</view>
-            <image bindtap="detailItems" class="img" src="../../images/right.png"></image>
-        </view>
-        <view class="item">
-            <view>牛角松筋</view>
-            <image bindtap="detailItems" class="img" src="../../images/right.png"></image>
-        </view>
-        <view class="item">
-            <view>生命之脉</view>
-            <image bindtap="detailItems" class="img" src="../../images/right.png"></image>
-        </view>
-        <view class="item">
-            <view>其他项目</view>
-            <image bindtap="detailItems" class="img" src="../../images/right.png"></image>
-        </view>
+        <view>{{item.name}}(已选择{{item.count}}项)</view>
+        <image bindtap="detailItems" class="img" src="../../images/right.png"></image>
     </view>
 </view>

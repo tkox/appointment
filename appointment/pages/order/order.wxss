@@ -51,11 +51,21 @@
     margin: 20rpx;
 }
 
+.order-time-detail-active {
+    width: 108px;
+    height: 66px;
+    margin: 10rpx;
+    padding: 10rpx;
+    border: 2rpx solid #000;
+    border-radius: 40rpx;
+}
+
 .order-time-detail {
     width: 108px;
     height: 66px;
     margin: 10rpx;
     padding: 10rpx;
+    background-color: #515151;
     border: 2rpx solid #000;
     border-radius: 40rpx;
 }

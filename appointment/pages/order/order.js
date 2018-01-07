@@ -47,7 +47,7 @@ Page({
         ],
         itemArr: [{
                 id: 0,
-                seat: 1,
+                seat: 0,
                 time: '8:00-9:00'
             }, {
                 id: 0,
@@ -64,7 +64,7 @@ Page({
                 time: '11:00-12:00'
             }, {
                 id: 1,
-                seat: 0,
+                seat: 2,
                 time: '13:00-14:00'
             }, {
                 id: 1,
@@ -92,73 +92,82 @@ Page({
         }, {
             id: 2
         }],
-        array: ['1位', '2位', '3位'],
+        array: [1, 2, 3],
         index: 0,
         leapYear: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         norYear: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         day: '',
+        seat: 1,
     },
     onLoad: function (e) {
         let flag = this.data.flag;
 
         let date = new Date()
-        let week = date.getDay();
+
+        //1 2 3 4 5 6 0
+        let week = (date.getDay() + 6) % 7;
+
         let year = date.getFullYear();
         let month = date.getMonth() + 1;
         let day = date.getDate();
 
         let monthLength = 0;
         let leapFlag = false;
-        if(year % 400 == 0 || (year % 400 != 0 && year % 4 == 0)) {
+        if (year % 400 == 0 || (year % 400 != 0 && year % 4 == 0)) {
             leapFlag = true;
             monthLength = this.data.leapYear[month - 1];
         } else {
             monthLength = this.data.norYear[month - 1];
         }
 
-        let i = week - 1;
+        let i = week;
         let j = 0;
-        if(month < 10){
-            flag[i].day = year + '-0' + month; 
-        }else{
+        if (month < 10) {
+            flag[i].day = year + '-0' + month;
+        } else {
             flag[i].day = year + '-' + month;
         }
 
-        if(day < 10){
+        if (day < 10) {
             flag[i].day += '-0' + day;
-        }else{
+        } else {
             flag[i].day += '-' + day;
         }
 
-        for(; j < 6; j++, i++){
-            if(day ===  monthLength){
+        for (; j < 6; j++, i++) {
+            if (day === monthLength) {
                 day = 1;
-                if(month < 12){
+                if (month < 12) {
                     month = 1;
                     year += 1;
-                }else{
+                } else {
                     month += 1;
-                } 
-            }else{
+                }
+            } else {
                 day += 1;
-            } 
-            
-            if(month < 10){
-                flag[(i + 1) % 7].day = year + '-0' + month; 
-            }else{
+            }
+
+            if (month < 10) {
+                flag[(i + 1) % 7].day = year + '-0' + month;
+            } else {
                 flag[(i + 1) % 7].day = year + '-' + month;
             }
-    
-            if(day < 10){
+
+            if (day < 10) {
                 flag[(i + 1) % 7].day += '-0' + day;
-            }else{
+            } else {
                 flag[(i + 1) % 7].day += '-' + day;
             }
-            // flag[].day = year + '-' + month + '-' + day;
         }
 
-        day = flag[week - 1].day;
-        flag[week - 1].isChoosed = true;
+        day = flag[week].day;
+        flag[week].isChoosed = true;
+
+        let temp;
+        for (i = 6; i >= week; i--) {
+            temp = flag.pop();
+            flag.unshift(temp);
+        }
         this.setData({
             day: day,
             flag: flag
@@ -167,16 +176,18 @@ Page({
 
     detail: function (e) {
         let index = e.currentTarget.dataset.index;
-        let timeTemp = this.data.itemArr[index].time;
+        let temp = this.data.itemArr[index];
         try {
-            wx.setStorageSync('time', timeTemp);
+            wx.setStorageSync('time', temp.time);
             wx.setStorageSync('date', this.data.day);
         } catch (e) {
             console.log(e);
         }
-        wx.navigateTo({
-            url: '../detail/detail'
-        });
+        if(temp.seat >= this.data.seat){
+            wx.navigateTo({
+                url: '../detail/detail'
+            });
+        }
     },
 
     week: function (e) {
@@ -184,10 +195,11 @@ Page({
         let temp = this.data.flag;
         let i = 0;
         let day = temp[idx].day;
-        for (; i < 7; i++)
+        for (; i < 7; i++) {
             temp[i].isChoosed = false;
+        }
         temp[idx].isChoosed = true;
-    
+
         this.setData({
             flag: temp,
             day: day
@@ -204,8 +216,9 @@ Page({
         let temp = e.detail.value;
         let seatTemp = this.data.array[temp];
         this.setData({
-                index: e.detail.value
-            }),
-            wx.setStorageSync('seat', seatTemp);
+            index: e.detail.value,
+            seat: seatTemp
+        });
+        wx.setStorageSync('seat', seatTemp);
     },
 })
