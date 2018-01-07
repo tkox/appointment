@@ -14,6 +14,6 @@
             <text class="number">{{item.num}}</text>
             <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
         </view>
-        <image bindtap="description" data-index="{{index}}" class="img" src="../../images/right.png"></image>
+        <image bindtap="description" data-id="{{item.id}}" data-index="{{index}}" class="img" src="../../images/right.png"></image>
     </view>
 </view>

@@ -81,7 +81,9 @@ Page({
     description: function(e) {
         console.log(e);
         let idx = e.currentTarget.dataset.index;
-        wx.setStorageSync('anchor', idx);
+        let id = e.currentTarget.dataset.id
+        wx.setStorageSync('curIndex', id);
+        wx.setStorageSync('toViewItem', idx);
         wx.navigateTo({
             url: '../description/description'
         });

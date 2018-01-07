@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/description/description",
     "pages/order/order",
     "pages/record/record",
     "pages/member/member",
+    "pages/description/description",
     "pages/jsy/jsy",
     "pages/detail/detail",
     "pages/detailItems/detailItems",

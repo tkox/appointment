@@ -13,7 +13,7 @@ Page({
                 id: 'vita'
             },
             {
-                name: '其他',
+                name: '其他项目',
                 id: 'other'
             },
         ],
@@ -75,48 +75,45 @@ Page({
                 name: '刮痧'
             }
         ],
-        itemArrTemp: [{
-                idx: '0',
-                name: '中医全身经络'
-            },
-            {
-                idx: '1',
-                name: '面部微雕松筋'
-            },
-            {
-                idx: '2',
-                name: '脉能腰臀调理'
-            },
-            {
-                idx: '3',
-                name: '刮痧'
-            }
-        ],
         detail: [],
         curIndex: 0,
         isScroll: false,
-        toView: 'hand'
+        toView: 'hand',
+        toViewItem: '',
     },
     onShow() {
-        wx.request({
-            url: 'http://localhost/www/test.json',
-            success(res) {
-                this.setData({
-                    detail: res.data
-                })
-            }
-        });
+
+        let curIndex = wx.getStorageSync('curIndex');
+        let toViewItem = wx.getStorageSync('toViewItem');
+
+        this.setData({
+            curIndex: curIndex,
+            toViewItem: toViewItem
+        })
+        // wx.request({
+        //     url: 'http://localhost/www/test.json',
+        //     success(res) {
+        //         this.setData({
+        //             detail: res.data
+        //         })
+        //     }
+        // });
     },
-    switchTab(e) {
-        console.log(e);
+    switchTab: function (e) {
+
+        let toView = e.currentTarget.dataset.id;
+        let curIndex = e.currentTarget.dataset.idx;
+        let toViewItem = e.currentTarget.dataset.index;
+
         const self = this;
         this.setData({
             isScroll: true
         })
         setTimeout(function () {
             self.setData({
-                toView: e.target.dataset.id,
-                curIndex: e.target.dataset.index
+                // toView: toView,
+                curIndex: curIndex,
+                toViewItem: toViewItem
             })
         }, 0)
         setTimeout(function () {
