@@ -75,7 +75,7 @@ Page({
                 name: '刮痧'
             }
         ],
-        detail: [],
+        description: [],
         curIndex: 0,
         isScroll: false,
         toView: 'hand',
@@ -86,18 +86,20 @@ Page({
         let curIndex = wx.getStorageSync('curIndex');
         let toViewItem = wx.getStorageSync('toViewItem');
 
+        const self = this;
         this.setData({
             curIndex: curIndex,
             toViewItem: toViewItem
         })
-        // wx.request({
-        //     url: 'http://localhost/www/test.json',
-        //     success(res) {
-        //         this.setData({
-        //             detail: res.data
-        //         })
-        //     }
-        // });
+        wx.request({
+            url: 'http://localhost:3000/description',
+            success(res) {
+                // console.log(res.data)
+                self.setData({
+                    description: res.data
+                })
+            }
+        });
     },
     switchTab: function (e) {
 
@@ -111,7 +113,7 @@ Page({
         })
         setTimeout(function () {
             self.setData({
-                // toView: toView,
+                toView: toView,
                 curIndex: curIndex,
                 toViewItem: toViewItem
             })

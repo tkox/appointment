@@ -65,7 +65,7 @@
     height: 66px;
     margin: 10rpx;
     padding: 10rpx;
-    background-color: #515151;
+    background-color: #ccc;
     border: 2rpx solid #000;
     border-radius: 40rpx;
 }
