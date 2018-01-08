@@ -19,6 +19,15 @@
     </picker>
 </view>
 
+<view class="order-seat">
+    <picker bindchange="bindPickerChangeRubber" value="{{indexRubber}}" range="{{rubber}}">
+        <view class="picker">
+            <text>预约席位：{{rubber[indexRubber]}}</text>
+            <image class="img" src="../../images/down.png"></image>
+        </view>
+    </picker>
+</view>
+
 <view class="order-time">
     <view>预约时间： </view>
     <view>{{day}}</view>

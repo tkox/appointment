@@ -93,7 +93,9 @@ Page({
             id: 2
         }],
         array: [1, 2, 3],
+        rubber: ['默认','黄荣', '李聪'],
         index: 0,
+        indexRubber: 0,
         leapYear: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         norYear: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         day: '',
@@ -213,12 +215,23 @@ Page({
     },
 
     bindPickerChange: function (e) {
-        let temp = e.detail.value;
+        let temp = e.detail.value || wx.getStorageSync('seat');
         let seatTemp = this.data.array[temp];
         this.setData({
-            index: e.detail.value,
+            index: temp,
             seat: seatTemp
         });
         wx.setStorageSync('seat', seatTemp);
+    },
+
+    bindPickerChangeRubber: function (e) {
+        let indexRubber = e.detail.value || wx.getStorageSync('indexRubber');
+        // console.log(temp)
+        // let rubber = this.data.rubber[temp];
+        this.setData({
+            indexRubber: indexRubber,
+            // seat: seatTemp
+        });
+        wx.setStorageSync('indexRubber', indexRubber);
     },
 })
