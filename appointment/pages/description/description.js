@@ -76,16 +76,16 @@ Page({
             }
         ],
         description: [],
+        descriptionItem: [],
         curIndex: 0,
         isScroll: false,
         toView: 'hand',
         toViewItem: '',
     },
     onShow() {
-
         let curIndex = wx.getStorageSync('curIndex');
         let toViewItem = wx.getStorageSync('toViewItem');
-
+        
         const self = this;
         this.setData({
             curIndex: curIndex,
@@ -94,19 +94,30 @@ Page({
         wx.request({
             url: 'http://localhost:3000/description',
             success(res) {
-                // console.log(res.data)
                 self.setData({
-                    description: res.data
+                    description: res.data,
+                    descriptionItem: res.data.descriptionItem
                 })
-            }
-        });
-    },
-    switchTab: function (e) {
 
+            },
+            
+        });
+        wx.request({
+            url: 'http://localhost:3000/descriptionItem',
+            success(res) {
+                self.setData({
+                    descriptionItem: res.data
+                })
+            }, 
+        });
+        
+    },
+
+    switchTab: function (e) {
         let toView = e.currentTarget.dataset.id;
         let curIndex = e.currentTarget.dataset.idx;
-        let toViewItem = e.currentTarget.dataset.index;
-
+        
+        console.log(this.data.descriptionItem)
         const self = this;
         this.setData({
             isScroll: true
@@ -115,6 +126,25 @@ Page({
             self.setData({
                 toView: toView,
                 curIndex: curIndex,
+            })
+        }, 0)
+        setTimeout(function () {
+            self.setData({
+                isScroll: false
+            })
+        }, 1)
+    },
+
+    switchTabItem: function(e) {
+        let toViewItem = e.currentTarget.dataset.index;
+
+        console.log("toViewItem: ", toViewItem)
+        const self = this;
+        this.setData({
+            isScroll: true
+        })
+        setTimeout(function () {
+            self.setData({
                 toViewItem: toViewItem
             })
         }, 0)
