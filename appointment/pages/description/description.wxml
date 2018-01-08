@@ -1,18 +1,20 @@
-<view class="main">
-    <view class="categroy-left">
-        <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+<view class="categroy-left">
+    <view wx:for="{{category}}" wx:for-index="idx" class="cate-list{{curIndex == idx ? '-on' : ''}}">
+        <text bindtap="switchTab" data-idx="{{idx}}" data-id="{{item.id}}">{{item.name}}</text>
+        <view wx:for="{{itemArr}}" wx:if="{{item.idx == idx}}" class="item-arr{{index == toViewItem ? '-active' : ''}}">
+            <text bindtap="switchTab" data-idx="{{idx}}" data-index="{{index}}" hidden="{{idx == curIndex ? false : true}}">{{item.name}}</text>
+        </view>
     </view>
+</view>
 
-    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
-        <block wx:for="{{detail}}" wx:key="idx">
-            <view id="{{item.id}}" class="cate-box">
-                <view class="product">
-                    <view class="classname">
-                        <text>{{item.info}}</text>
-                    </view>
+<scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+    <block wx:for="{{detail}}" wx:key="idx">
+        <view id="{{item.id}}" class="cate-box">
+            <view class="product">
+                <view class="classname">
+                    <text>{{item.info}}</text>
                 </view>
             </view>
-        </block>
-    </scroll-view>
-
-</view>
+        </view>
+    </block>
+</scroll-view>

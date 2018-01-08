@@ -11,9 +11,9 @@
         <view class="fixed">{{item.name}}</view>
         <view class="stepper">
             <text class="{{item.minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
-            <input type="number" bindchange="bindManual" data-index="{{index}}" value="{{item.num}}" />
+            <text class="number">{{item.num}}</text>
             <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
         </view>
-        <image bindtap="description" class="img" src="../../images/right.png"></image>
+        <image bindtap="description" data-id="{{item.id}}" data-index="{{index}}" class="img" src="../../images/right.png"></image>
     </view>
 </view>

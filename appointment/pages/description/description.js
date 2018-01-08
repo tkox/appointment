@@ -13,35 +13,109 @@ Page({
                 id: 'vita'
             },
             {
-                name: '其他',
+                name: '其他项目',
                 id: 'other'
             },
         ],
-        detail: [],
+        itemArr: [{
+                idx: '0',
+                name: '中医全身经络'
+            }, {
+                idx: '0',
+                name: '全身淋巴排毒'
+            }, {
+                idx: '0',
+                name: '尤兰乳腺滋养'
+            }, {
+                idx: '0',
+                name: '背部三焦舒缓'
+            }, {
+                idx: '0',
+                name: '腿部淋巴排毒'
+            }, {
+                idx: '1',
+                name: '头部疏通松筋'
+            },
+            {
+                idx: '1',
+                name: '面部微雕松筋'
+            }, {
+                idx: '1',
+                name: '肩筋护理松筋'
+            }, {
+                idx: '1',
+                name: '腰臀护理松筋'
+            }, {
+                idx: '1',
+                name: '肠胃调整松筋'
+            }, {
+                idx: '2',
+                name: '脉能头部调整'
+            }, {
+                idx: '2',
+                name: '脉能面部紧致提升'
+            },
+            {
+                idx: '2',
+                name: '脉能腰臀调理'
+            }, {
+                idx: '2',
+                name: '脉能肩筋调理'
+            }, {
+                idx: '2',
+                name: '脉能腿部调理'
+            }, {
+                idx: '2',
+                name: '脉能肠胃调理'
+            }, {
+                idx: '3',
+                name: '拔罐'
+            }, {
+                idx: '3',
+                name: '刮痧'
+            }
+        ],
+        description: [],
         curIndex: 0,
         isScroll: false,
-        toView: 'hand'
+        toView: 'hand',
+        toViewItem: '',
     },
     onShow() {
-        let self = this;
+
+        let curIndex = wx.getStorageSync('curIndex');
+        let toViewItem = wx.getStorageSync('toViewItem');
+
+        const self = this;
+        this.setData({
+            curIndex: curIndex,
+            toViewItem: toViewItem
+        })
         wx.request({
-            url: 'http://localhost/www/test.json',
+            url: 'http://localhost:3000/description',
             success(res) {
+                // console.log(res.data)
                 self.setData({
-                    detail: res.data
+                    description: res.data
                 })
             }
         });
     },
-    switchTab(e) {
+    switchTab: function (e) {
+
+        let toView = e.currentTarget.dataset.id;
+        let curIndex = e.currentTarget.dataset.idx;
+        let toViewItem = e.currentTarget.dataset.index;
+
         const self = this;
         this.setData({
             isScroll: true
         })
         setTimeout(function () {
             self.setData({
-                toView: e.target.dataset.id,
-                curIndex: e.target.dataset.index
+                toView: toView,
+                curIndex: curIndex,
+                toViewItem: toViewItem
             })
         }, 0)
         setTimeout(function () {
