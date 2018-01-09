@@ -81,7 +81,9 @@ Page({
         isScroll: false,
         toView: 'hand',
         toViewItem: '',
+        visable: 'false',
     },
+
     onShow() {
         let curIndex = wx.getStorageSync('curIndex');
         let toViewItem = wx.getStorageSync('toViewItem');
@@ -96,7 +98,6 @@ Page({
             success(res) {
                 self.setData({
                     description: res.data,
-                    descriptionItem: res.data.descriptionItem
                 })
 
             },
@@ -110,14 +111,13 @@ Page({
                 })
             }, 
         });
-        
     },
 
     switchTab: function (e) {
         let toView = e.currentTarget.dataset.id;
         let curIndex = e.currentTarget.dataset.idx;
-        
-        console.log(this.data.descriptionItem)
+        console.log(this.data.description[curIndex].id);
+        // console.log(toView);
         const self = this;
         this.setData({
             isScroll: true
@@ -126,31 +126,26 @@ Page({
             self.setData({
                 toView: toView,
                 curIndex: curIndex,
-            })
-        }, 0)
-        setTimeout(function () {
-            self.setData({
-                isScroll: false
+                visable: true,
+                toViewItem: -1,
             })
         }, 1)
+
+        // console.log(this.data.toViewItem)
     },
 
     switchTabItem: function(e) {
         let toViewItem = e.currentTarget.dataset.index;
 
-        console.log("toViewItem: ", toViewItem)
+        // console.log("toViewItem: ", toViewItem)
         const self = this;
         this.setData({
             isScroll: true
         })
         setTimeout(function () {
             self.setData({
-                toViewItem: toViewItem
-            })
-        }, 0)
-        setTimeout(function () {
-            self.setData({
-                isScroll: false
+                toViewItem: toViewItem,
+                // visable: false,
             })
         }, 1)
     }
