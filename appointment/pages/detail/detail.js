@@ -1,5 +1,3 @@
-
-
 Page({
     data: {
         detail: [{
@@ -25,6 +23,7 @@ Page({
         ],
         day: '',
         time: '',
+        seat: '',
     },
 
     onShow() {
@@ -34,9 +33,9 @@ Page({
         let time = wx.getStorageSync('time');
         let temp = wx.getStorageSync('count_sto') || [0, 0, 0, 0];
 
-        console.log(temp);
+        // console.log(temp);
         let i = 0;
-        for(; i < 4; i++){
+        for (; i < 4; i++) {
             detail[i].count = temp[i];
         }
 
@@ -54,4 +53,24 @@ Page({
         });
     },
 
+    submit: function (e) {
+        let seatInfo = wx.getStorageSync('seatInfo');
+        let seatIndex = wx.getStorageSync('seatIndex');
+
+        seatInfo[seatIndex] -= this.data.seat;
+
+        wx.setStorageSync('seatInfo', seatInfo);
+        console.log(this.data.seat);
+
+        setTimeout(function () {
+            wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+            }), 0
+        })
+        wx.navigateBack({
+            delta: 1, // 回退前 delta(默认为1) 页面
+        })
+    }
 })

@@ -93,15 +93,16 @@ Page({
             id: 2
         }],
         array: [1, 2, 3],
-        rubber: ['默认','黄荣', '李聪'],
+        rubber: ['默认', '黄荣', '李聪'],
         index: 0,
         indexRubber: 0,
         leapYear: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         norYear: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         day: '',
-        seat: 1,
+        seat: '',
     },
-    onLoad: function (e) {
+
+    onLoad: function(e) {
         let flag = this.data.flag;
 
         let date = new Date()
@@ -164,28 +165,46 @@ Page({
 
         day = flag[week].day;
         flag[week].isChoosed = true;
-
         let temp;
         for (i = 6; i >= week; i--) {
             temp = flag.pop();
             flag.unshift(temp);
         }
+
         this.setData({
             day: day,
-            flag: flag
+            flag: flag,
         })
+    },
+
+    onShow: function (e) {
+        let seatInfo = wx.getStorageSync('seatInfo') || [0, 3, 2, 0, 2, 0, 3, 3, 1];
+        let itemArr = this.data.itemArr;
+        let k = 0;
+        for (k = 0; k < 9; k++) {
+            itemArr[k].seat = seatInfo[k];
+        }
+
+        let seat = wx.getStorageSync('seat') || '1';
+
+        this.setData({
+            seat: seat,
+            itemArr: itemArr
+        }),
+        wx.setStorageSync('seatInfo', seatInfo);
     },
 
     detail: function (e) {
         let index = e.currentTarget.dataset.index;
         let temp = this.data.itemArr[index];
         try {
+            wx.setStorageSync('seatIndex', index)
             wx.setStorageSync('time', temp.time);
             wx.setStorageSync('date', this.data.day);
         } catch (e) {
             console.log(e);
         }
-        if(temp.seat >= this.data.seat){
+        if (temp.seat >= this.data.seat) {
             wx.navigateTo({
                 url: '../detail/detail'
             });

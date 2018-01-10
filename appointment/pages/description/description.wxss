@@ -4,6 +4,11 @@ page{
     font-size: 32rpx;
 }
 
+.main {
+    display: flex;
+    height: 100%;
+}
+
 .categroy-left{
     float: left;
     width: 250rpx;
@@ -49,11 +54,17 @@ page{
     float: right;
     width: 600rpx;
     height: 100%;
-    overflow: hidden;
+    padding: 20rpx;
+    /* overflow: hidden; */
 }
 
 .cate-box{
     height: 100%;
-    padding:40rpx;
-    box-sizing: border-box;
+    /* padding:40rpx; */
+    /* box-sizing: border-box; */
+}
+
+
+.description-text{
+    text-align: center;
 }

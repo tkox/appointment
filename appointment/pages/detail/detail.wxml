@@ -23,3 +23,11 @@
         <image bindtap="detailItems" class="img" src="../../images/right.png"></image>
     </view>
 </view>
+
+<view class="footer">
+    <!-- <button class="foot-left">
+        <text class="detail">详情</text>
+        <text class="bubber">6</text>
+    </button> -->
+    <button class="info" bindtap="submit">提交</button>
+</view>

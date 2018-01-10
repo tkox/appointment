@@ -76,16 +76,18 @@ Page({
             }
         ],
         description: [],
+        descriptionItem: [],
         curIndex: 0,
         isScroll: false,
         toView: 'hand',
         toViewItem: '',
+        visable: 'false',
     },
-    onShow() {
 
+    onShow() {
         let curIndex = wx.getStorageSync('curIndex');
         let toViewItem = wx.getStorageSync('toViewItem');
-
+        
         const self = this;
         this.setData({
             curIndex: curIndex,
@@ -94,19 +96,28 @@ Page({
         wx.request({
             url: 'http://localhost:3000/description',
             success(res) {
-                // console.log(res.data)
                 self.setData({
-                    description: res.data
+                    description: res.data,
                 })
-            }
+
+            },
+            
+        });
+        wx.request({
+            url: 'http://localhost:3000/descriptionItem',
+            success(res) {
+                self.setData({
+                    descriptionItem: res.data
+                })
+            }, 
         });
     },
-    switchTab: function (e) {
 
+    switchTab: function (e) {
         let toView = e.currentTarget.dataset.id;
         let curIndex = e.currentTarget.dataset.idx;
-        let toViewItem = e.currentTarget.dataset.index;
-
+        console.log(this.data.description[curIndex].id);
+        // console.log(toView);
         const self = this;
         this.setData({
             isScroll: true
@@ -115,12 +126,26 @@ Page({
             self.setData({
                 toView: toView,
                 curIndex: curIndex,
-                toViewItem: toViewItem
+                visable: true,
+                toViewItem: -1,
             })
-        }, 0)
+        }, 1)
+
+        // console.log(this.data.toViewItem)
+    },
+
+    switchTabItem: function(e) {
+        let toViewItem = e.currentTarget.dataset.index;
+
+        // console.log("toViewItem: ", toViewItem)
+        const self = this;
+        this.setData({
+            isScroll: true
+        })
         setTimeout(function () {
             self.setData({
-                isScroll: false
+                toViewItem: toViewItem,
+                // visable: false,
             })
         }, 1)
     }
