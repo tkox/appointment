@@ -51,9 +51,9 @@ Page({
 
   saveTab:function(e){ 
     wx.request({
-      url: 'http://localhost/kuibutang/api.php',
+      url: 'http://120.79.152.109/api.php',
       data: {
-        a: 'save',
+        a: 'saveUserInfo',
         member_id: '62218000',
         name: this.data.userName,
         sex: this.data.userSex,
@@ -77,9 +77,9 @@ Page({
    */
   onShow: function () {
     wx.request({
-      url: 'http://localhost/kuibutang/api.php',
+      url: 'http://120.79.152.109/api.php',
       data: {
-        a: 'info',
+        a: 'getUserInfo',
         member_id: '62218000'
       },
       method: 'GET',
