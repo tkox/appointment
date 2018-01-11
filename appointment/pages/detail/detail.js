@@ -57,11 +57,11 @@ Page({
         let seatInfo = wx.getStorageSync('seatInfo');
         let seatIndex = wx.getStorageSync('seatIndex');
 
-        if (seatInfo >= seatIndex) {
+        if (seatInfo[seatIndex].seat >= this.data.seat) {
             seatInfo[seatIndex].seat -= this.data.seat;
 
             wx.setStorageSync('seatInfo', seatInfo);
-            console.log(this.data.seat);
+            // console.log(this.data.seat);
 
             setTimeout(function () {
                 wx.showToast({
@@ -72,6 +72,12 @@ Page({
             })
             wx.navigateBack({
                 delta: 1, // 回退前 delta(默认为1) 页面
+            })
+        }else{
+            wx.showToast({
+                title: '失败',
+                icon: 'loading',
+                duration: 2000
             })
         }
     }

@@ -233,7 +233,8 @@ Page({
     },
 
     onShow: function (e) {
-        let seatInfo = wx.getStorageSync('seatInfo') || this.data.itemArr;
+        console.log(wx.getStorageSync('seatInfo'));
+        let seatInfo = wx.getStorageSync('seatInfo')  || this.data.itemArr;
         let itemArr = this.data.itemArr;
         let k = 0;
         for (k = 0; k < 9; k++) {

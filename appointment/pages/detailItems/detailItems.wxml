@@ -7,7 +7,7 @@
 
 <view wx:for="{{title}}" wx:key="{{title}}" wx:for-index="idx">
     <view class="text-middle">{{item}}</view>
-    <view class="item" wx:for="{{items}}" wx:if="{{idx == item.id}}">
+    <view class="item" wx:for="{{items}}"  wx:key="items" wx:if="{{idx == item.id}}">
         <view class="fixed">{{item.name}}</view>
         <view class="stepper">
             <text class="{{item.minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>

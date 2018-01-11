@@ -1,5 +1,5 @@
 <view class="header">
-    <block wx:for="{{flag}}">
+    <block wx:for="{{flag}}" wx:key="flag">
         <text bindtap="week" class="tab-button{{flag[index].isChoosed ? '-active' : ''}}" data-index="{{index}}">{{item.content}}</text>
     </block>
 </view>
@@ -35,9 +35,9 @@
 
 <view class="order-time">预约时间段</view>
 
-<view wx:for="{{id}}" wx:for-index="idx">
+<view wx:for="{{id}}" wx:for-index="idx" wx:key="id">
     <view class="item">
-        <block wx:for="{{itemArr}}"  wx:if="{{item.id == idx}}">
+        <block wx:for="{{itemArr}}"  wx:if="{{item.id == idx}}" wx:key="itemArr">
             <view class="order-time-detail{{itemArr[index].seat >= seat ? '-active' : ''}}" data-index="{{index}}" bindtap="detail">
                 <view class="order-text">{{item.time}}</view>
                 <view class="order-text">可预约席位</view>
