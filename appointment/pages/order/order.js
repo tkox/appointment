@@ -102,7 +102,7 @@ Page({
         seat: '',
     },
 
-    onLoad: function(e) {
+    onLoad: function (e) {
         let flag = this.data.flag;
 
         let date = new Date()
@@ -175,23 +175,78 @@ Page({
             day: day,
             flag: flag,
         })
+
+        //初始加载，获取一次数据
+        wx.request({
+            url: 'http://120.79.152.109/api.php',
+            data: {
+                a: 'getOrderData',
+                date: this.data.day
+            },
+            method: 'GET',
+            success: res => {
+                console.log(res.data)
+                this.setData({
+                    itemArr: [{
+                            id: 0,
+                            seat: res.data.data["8:00-9:00"],
+                            time: '8:00-9:00'
+                        }, {
+                            id: 0,
+                            seat: res.data.data["9:00-10:00"],
+                            time: '9:00-10:00'
+                        }, {
+                            id: 0,
+                            seat: res.data.data["10:00-11:00"],
+                            time: '10:00-11:00'
+                        },
+                        {
+                            id: 1,
+                            seat: res.data.data["11:00-12:00"],
+                            time: '11:00-12:00'
+                        }, {
+                            id: 1,
+                            seat: res.data.data["13:00-14:00"],
+                            time: '13:00-14:00'
+                        }, {
+                            id: 1,
+                            seat: res.data.data["14:00-15:00"],
+                            time: '14:00-15:00'
+                        },
+                        {
+                            id: 2,
+                            seat: res.data.data["15:00-16:00"],
+                            time: '15:00-16:00'
+                        }, {
+                            id: 2,
+                            seat: res.data.data["16:00-17:00"],
+                            time: '16:00-17:00'
+                        }, {
+                            id: 2,
+                            seat: res.data.data["17:00-18:00"],
+                            time: '17:00-18:00'
+                        },
+                    ]
+                })
+            }
+        })
     },
 
     onShow: function (e) {
-        let seatInfo = wx.getStorageSync('seatInfo') || [0, 3, 2, 0, 2, 0, 3, 3, 1];
+        let seatInfo = wx.getStorageSync('seatInfo') || this.data.itemArr;
         let itemArr = this.data.itemArr;
         let k = 0;
         for (k = 0; k < 9; k++) {
-            itemArr[k].seat = seatInfo[k];
+            itemArr[k].seat = seatInfo[k].seat;
         }
 
         let seat = wx.getStorageSync('seat') || '1';
 
         this.setData({
-            seat: seat,
-            itemArr: itemArr
-        }),
-        wx.setStorageSync('seatInfo', seatInfo);
+                seat: seat,
+                itemArr: itemArr
+            }),
+            wx.setStorageSync('seatInfo', seatInfo);
     },
 
     detail: function (e) {
@@ -224,6 +279,61 @@ Page({
         this.setData({
             flag: temp,
             day: day
+        })
+
+        //请求获取数据
+        wx.request({
+            url: 'http://120.79.152.109/api.php',
+            data: {
+                a: 'getOrderData',
+                date: this.data.day
+            },
+            method: 'GET',
+            success: res => {
+                console.log(res.data)
+                this.setData({
+                    itemArr: [{
+                            id: 0,
+                            seat: res.data.data["8:00-9:00"],
+                            time: '8:00-9:00'
+                        }, {
+                            id: 0,
+                            seat: res.data.data["9:00-10:00"],
+                            time: '9:00-10:00'
+                        }, {
+                            id: 0,
+                            seat: res.data.data["10:00-11:00"],
+                            time: '10:00-11:00'
+                        },
+                        {
+                            id: 1,
+                            seat: res.data.data["11:00-12:00"],
+                            time: '11:00-12:00'
+                        }, {
+                            id: 1,
+                            seat: res.data.data["13:00-14:00"],
+                            time: '13:00-14:00'
+                        }, {
+                            id: 1,
+                            seat: res.data.data["14:00-15:00"],
+                            time: '14:00-15:00'
+                        },
+                        {
+                            id: 2,
+                            seat: res.data.data["15:00-16:00"],
+                            time: '15:00-16:00'
+                        }, {
+                            id: 2,
+                            seat: res.data.data["16:00-17:00"],
+                            time: '16:00-17:00'
+                        }, {
+                            id: 2,
+                            seat: res.data.data["17:00-18:00"],
+                            time: '17:00-18:00'
+                        },
+                    ]
+                })
+            }
         })
     },
 

@@ -9,8 +9,9 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.6",
-	"appid": "wxe81eedf4942c833b",
-	"projectname": "appoint",
+	"appid": "touristappid",
+	"projectname": "%E6%97%A0appid",
+
 	"condition": {
 		"search": {
 			"current": -1,
