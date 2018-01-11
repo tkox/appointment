@@ -57,20 +57,22 @@ Page({
         let seatInfo = wx.getStorageSync('seatInfo');
         let seatIndex = wx.getStorageSync('seatIndex');
 
-        seatInfo[seatIndex] -= this.data.seat;
+        if (seatInfo >= seatIndex) {
+            seatInfo[seatIndex].seat -= this.data.seat;
 
-        wx.setStorageSync('seatInfo', seatInfo);
-        console.log(this.data.seat);
+            wx.setStorageSync('seatInfo', seatInfo);
+            console.log(this.data.seat);
 
-        setTimeout(function () {
-            wx.showToast({
-                title: '成功',
-                icon: 'success',
-                duration: 2000
-            }), 0
-        })
-        wx.navigateBack({
-            delta: 1, // 回退前 delta(默认为1) 页面
-        })
+            setTimeout(function () {
+                wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                }), 0
+            })
+            wx.navigateBack({
+                delta: 1, // 回退前 delta(默认为1) 页面
+            })
+        }
     }
 })
