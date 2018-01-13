@@ -2,7 +2,7 @@
 <view class = "back">    
     <view class = "chooseConsume ">
         <text class = "{{consumeFlag?'consuming':'consuming consuming-selet'}}" data-tab="0" bindtap="chooseConsume">待消费（{{consumingA.length}}）</text>
-        <text class = "{{consumeFlag?'consumed consumed-selet':'consumed'}}" data-tab="1" bindtap="chooseConsume">已过期（{{consumedA.length}}）</text>  
+        <text class = "{{consumeFlag?'consumed consumed-selet':'consumed'}}" data-tab="1" bindtap="chooseConsume">已过期/已消费（{{consumedA.length}}）</text>  
     </view>
 </view>
 <template name="itemTem">
