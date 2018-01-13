@@ -73,9 +73,7 @@ Page({
         let time = wx.getStorageSync('time');
         let temp = wx.getStorageSync('count_sto') || [0, 0, 0, 0];
 
-        let number = wx.getStorageSync('number_sto') || this.data.num;
 
-        console.log(number);
         // console.log(temp);
         let i = 0;
         for (; i < 4; i++) {
@@ -97,6 +95,8 @@ Page({
     },
 
     submit: function (e) {
+        let number = wx.getStorageSync('number_sto') || this.data.num;
+        
         //请求获取数据
         wx.request({
             url: 'http://120.79.152.109/api.php',
