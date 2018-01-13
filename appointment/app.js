@@ -4,11 +4,11 @@ App({
     clubCardA:[
       {
         "class":"普通会员",
-        "number":"62218425",
+        "number":"62218000",
         "validLimit":"长期有效",
         "therapistN":"阿丽 13号",
         "suggestNum":3,
-        "storedValue":1320,
+        "storedValue":2000,
         "couponNum":2,
         "shopNum":4,
       }

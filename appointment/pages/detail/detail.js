@@ -66,7 +66,10 @@ Page({
         let day = wx.getStorageSync('date');
         let time = wx.getStorageSync('time');
         let temp = wx.getStorageSync('count_sto') || [0, 0, 0, 0];
+        
+        let number = wx.getStorageSync('number_sto') || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+        console.log(number);
         // console.log(temp);
         let i = 0;
         for (; i < 4; i++) {
