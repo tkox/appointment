@@ -48,6 +48,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+            //请求获取数据
+            wx.request({
+              url: 'http://120.79.152.109/api.php',
+              data: {
+                  a: 'getUserStoredData',
+                  member_id: '62218000',
+              },
+              method: 'GET',
+              success: res => {
+                  console.log(res.data)
+              }
+          })
   
   },
 
