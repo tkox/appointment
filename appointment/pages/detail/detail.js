@@ -1,37 +1,3 @@
-function getNowFormatDate() {
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-            + " " + date.getHours() + seperator2 + date.getMinutes()
-            + seperator2 + date.getSeconds();
-    return currentdate;
-}
-
-function getNowFormatDateDay() {
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-    return currentdate;
-}
-
 Page({
     data: {
         detail: [{
@@ -86,6 +52,10 @@ Page({
             time: time,
             detail: detail,
         });
+        // let detailtime = this.data.day + ' ' + this.data.time; // from myself
+        // console.log(detailtime);
+
+        // console.log(getNowFormatDate());//from hr 
     },
 
     detailItems: function (e) {
@@ -107,9 +77,8 @@ Page({
                 item_2: '00100',
                 item_3: '00300',
                 orderTime: this.data.time,
-                addTime: getNowFormatDate(),
+                addTime: this.data.day + ' ' + this.data.time,
                 date: this.data.day
-
             },
             method: 'GET',
             success: res => {
