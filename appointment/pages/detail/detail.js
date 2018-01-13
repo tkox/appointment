@@ -58,6 +58,12 @@ Page({
         day: '',
         time: '',
         seat: '',
+        num: [{'id': '00000', 'num': 0}, {'id': '00001', 'num': 0}, {'id': '00002', 'num': 0},
+        {'id': '00003', 'num': 0}, {'id': '00004', 'num': 0}, {'id': '00100', 'num': 0},
+        {'id': '00101', 'num': 0}, {'id': '00102', 'num': 0}, {'id': '00103', 'num': 0},
+        {'id': '00104', 'num': 0}, {'id': '00200', 'num': 0}, {'id': '00201', 'num': 0},
+        {'id': '00202', 'num': 0}, {'id': '00203', 'num': 0}, {'id': '00204', 'num': 0},
+        {'id': '00205', 'num': 0}, {'id': '00300', 'num': 0}, {'id': '00301', 'num': 0}]
     },
 
     onShow() {
@@ -67,6 +73,9 @@ Page({
         let time = wx.getStorageSync('time');
         let temp = wx.getStorageSync('count_sto') || [0, 0, 0, 0];
 
+        let number = wx.getStorageSync('number_sto') || this.data.num;
+
+        console.log(number);
         // console.log(temp);
         let i = 0;
         for (; i < 4; i++) {
