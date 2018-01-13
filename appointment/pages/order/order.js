@@ -43,46 +43,6 @@ Page({
                 day: ''
             },
         ],
-        // itemArr: [{
-        //         id: 0,
-        //         seat: 0,
-        //         time: '8:00-9:00'
-        //     }, {
-        //         id: 0,
-        //         seat: 3,
-        //         time: '9:00-10:00'
-        //     }, {
-        //         id: 0,
-        //         seat: 2,
-        //         time: '10:00-11:00'
-        //     },
-        //     {
-        //         id: 1,
-        //         seat: 0,
-        //         time: '11:00-12:00'
-        //     }, {
-        //         id: 1,
-        //         seat: 2,
-        //         time: '13:00-14:00'
-        //     }, {
-        //         id: 1,
-        //         seat: 0,
-        //         time: '14:00-15:00'
-        //     },
-        //     {
-        //         id: 2,
-        //         seat: 3,
-        //         time: '15:00-16:00'
-        //     }, {
-        //         id: 2,
-        //         seat: 3,
-        //         time: '16:00-17:00'
-        //     }, {
-        //         id: 2,
-        //         seat: 1,
-        //         time: '17:00-18:00'
-        //     },
-        // ],
         itemArr: [{
                 id: 0,
                 seat: '',
@@ -313,7 +273,7 @@ Page({
     },
 
     onShow: function (e) {
-        console.log(this.data.seatInfo); // 
+        // console.log(this.data.seatInfo); // 
         let seatInfo = this.data.seatInfo; // wx.getStorageSync('seatInfo') ||
         let itemArr = this.data.itemArr;
         let k = 0;
@@ -427,7 +387,7 @@ Page({
                     itemArr: itemArr,
                     seatInfo: seatInfo
                 });
-                console.log(this.data.seatInfo);
+                // console.log(this.data.seatInfo);
             }
         })
     },

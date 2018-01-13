@@ -66,7 +66,9 @@ Page({
 
     submit: function (e) {
         let number = wx.getStorageSync('number_sto') || this.data.num;
-        
+        // console.log('submit');
+        // console.log(wx.getStorageSync('seatInfo'));
+        let seatInfo = wx.getStorageSync('seatInfo')
         //请求获取数据
         wx.request({
             url: 'http://120.79.152.109/api.php',
