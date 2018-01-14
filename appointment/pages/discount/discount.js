@@ -129,6 +129,7 @@ Page({
                 "itemName": res.data.data[i].useOnly,
                 "limitDate": res.data.data[i].start_date + "-" + res.data.data[i].end_date,
               }
+              app.data.clubCardA[0].couponNum = j;
             }
           } else {
             //已使用
@@ -139,7 +140,6 @@ Page({
               "limitDate": res.data.data[i].start_date + "-" + res.data.data[i].end_date,
             }
           };
-          app.data.clubCardA[0].couponNum = i+1;
         }
 
         this.setData({
