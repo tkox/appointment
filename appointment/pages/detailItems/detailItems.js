@@ -20,21 +20,31 @@ Page({
         {'id': 2, 'minusStatus': 'disabled', 'num': 0,  'name': '脉能肠胃调理'},
         {'id': 3, 'minusStatus': 'disabled', 'num': 0,  'name': '拔罐'}, 
         {'id': 3, 'minusStatus': 'disabled', 'num': 0,  'name': '刮痧'}], 
+        num: [{'id': '00000', 'num': 0}, {'id': '00001', 'num': 0}, {'id': '00002', 'num': 0},
+        {'id': '00003', 'num': 0}, {'id': '00004', 'num': 0}, {'id': '00100', 'num': 0},
+        {'id': '00101', 'num': 0}, {'id': '00102', 'num': 0}, {'id': '00103', 'num': 0},
+        {'id': '00104', 'num': 0}, {'id': '00200', 'num': 0}, {'id': '00201', 'num': 0},
+        {'id': '00202', 'num': 0}, {'id': '00203', 'num': 0}, {'id': '00204', 'num': 0},
+        {'id': '00205', 'num': 0}, {'id': '00300', 'num': 0}, {'id': '00301', 'num': 0}]
     },
 
     onShow: function(){
         let i = 0;
         let items = this.data.items;
-        let number = wx.getStorageSync('number_sto') || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let number = wx.getStorageSync('number_sto') || this.data.num;
+
+        // console.log(number);
+
         let count = wx.getStorageSync('count_sto') || [0, 0, 0, 0];
 
         for(; i < 18; i++){
-            items[i].num = number[i];
+            items[i].num = number[i].num;
         };
 
         this.setData({
             items: items,
         });
+
         wx.setStorageSync('count_sto', count);
         wx.setStorageSync('number_sto', number);
     },
@@ -47,7 +57,7 @@ Page({
         let number = wx.getStorageSync('number_sto');
         if (num > 0) {
             temp[index].num--;
-            number[index]--;
+            number[index].num--;
             count[temp[index].id]--;
         }
 
@@ -66,7 +76,7 @@ Page({
         let number = wx.getStorageSync('number_sto');
 
         temp[index].num++;
-        number[index]++;
+        number[index].num++;
         temp[index].minusStatus = temp[index].num > 0 ? 'normal' : 'disabled';
 
         count[temp[index].id]++;
@@ -79,7 +89,7 @@ Page({
     },
 
     description: function(e) {
-        console.log(e);
+        // console.log(e);
         let idx = e.currentTarget.dataset.index;
         let id = e.currentTarget.dataset.id
         wx.setStorageSync('curIndex', id);

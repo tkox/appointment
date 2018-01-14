@@ -1,5 +1,3 @@
-let util = require('../../utils/util.js');
-
 Page({
     data: {
         flag: [{
@@ -47,44 +45,45 @@ Page({
         ],
         itemArr: [{
                 id: 0,
-                seat: 0,
+                seat: '',
                 time: '8:00-9:00'
             }, {
                 id: 0,
-                seat: 3,
+                seat: '',
                 time: '9:00-10:00'
             }, {
                 id: 0,
-                seat: 2,
+                seat: '',
                 time: '10:00-11:00'
             },
             {
                 id: 1,
-                seat: 0,
+                seat: '',
                 time: '11:00-12:00'
             }, {
                 id: 1,
-                seat: 2,
+                seat: '',
                 time: '13:00-14:00'
             }, {
                 id: 1,
-                seat: 0,
+                seat: '',
                 time: '14:00-15:00'
             },
             {
                 id: 2,
-                seat: 3,
+                seat: '',
                 time: '15:00-16:00'
             }, {
                 id: 2,
-                seat: 3,
+                seat: '',
                 time: '16:00-17:00'
             }, {
                 id: 2,
-                seat: 1,
+                seat: '',
                 time: '17:00-18:00'
             },
         ],
+
         id: [{
             id: 0
         }, {
@@ -100,6 +99,35 @@ Page({
         norYear: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         day: '',
         seat: '',
+        seatInfo: [{
+                'id': 0,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+            {
+                'id': 1,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+            {
+                'id': 2,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+            {
+                'id': 3,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+            {
+                'id': 4,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+            {
+                'id': 5,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+            {
+                'id': 6,
+                'info': [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+        ]
     },
 
     onLoad: function (e) {
@@ -171,6 +199,7 @@ Page({
             flag.unshift(temp);
         }
 
+        // console.log(day);
         this.setData({
             day: day,
             flag: flag,
@@ -185,7 +214,8 @@ Page({
             },
             method: 'GET',
             success: res => {
-                console.log(res.data)
+                // console.log('res.data');
+                // console.log(res.data)
                 this.setData({
                     itemArr: [{
                             id: 0,
@@ -227,18 +257,28 @@ Page({
                             time: '17:00-18:00'
                         },
                     ]
-                })
+                });
+                let i = 0;
+                let itemArr = this.data.itemArr;
+                let seatInfo = this.data.seatInfo;
+                for(i = 0; i < 9; i++){
+                    seatInfo[0].info[i] = itemArr[i].seat;
+                };
+                this.setData({
+                    itemArr: itemArr,
+                    seatInfo: seatInfo
+                });
             }
-        })
+        })        
     },
 
     onShow: function (e) {
-        console.log(wx.getStorageSync('seatInfo'));
-        let seatInfo = wx.getStorageSync('seatInfo')  || this.data.itemArr;
+        // console.log(this.data.seatInfo); // 
+        let seatInfo = this.data.seatInfo; // wx.getStorageSync('seatInfo') ||
         let itemArr = this.data.itemArr;
         let k = 0;
         for (k = 0; k < 9; k++) {
-            itemArr[k].seat = seatInfo[k].seat;
+            itemArr[k].seat = seatInfo[0].info[k];
         }
 
         let seat = wx.getStorageSync('seat') || '1';
@@ -246,13 +286,16 @@ Page({
         this.setData({
                 seat: seat,
                 itemArr: itemArr
-            }),
+            });
             wx.setStorageSync('seatInfo', seatInfo);
     },
 
     detail: function (e) {
         let index = e.currentTarget.dataset.index;
         let temp = this.data.itemArr[index];
+
+        // console.log('this.data.itemArr-3');
+        // console.log(this.data.itemArr);
         try {
             wx.setStorageSync('seatIndex', index)
             wx.setStorageSync('time', temp.time);
@@ -291,7 +334,7 @@ Page({
             },
             method: 'GET',
             success: res => {
-                console.log(res.data)
+                // console.log(res.data)
                 this.setData({
                     itemArr: [{
                             id: 0,
@@ -334,6 +377,17 @@ Page({
                         },
                     ]
                 })
+                let i = 0;
+                let itemArr = this.data.itemArr;
+                let seatInfo = this.data.seatInfo;
+                for(i = 0; i < 9; i++){
+                    seatInfo[idx].info[i] = itemArr[i].seat;
+                };
+                this.setData({
+                    itemArr: itemArr,
+                    seatInfo: seatInfo
+                });
+                // console.log(this.data.seatInfo);
             }
         })
     },

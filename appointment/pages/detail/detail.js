@@ -1,37 +1,3 @@
-function getNowFormatDate() {
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-            + " " + date.getHours() + seperator2 + date.getMinutes()
-            + seperator2 + date.getSeconds();
-    return currentdate;
-}
-
-function getNowFormatDateDay() {
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-    return currentdate;
-}
-
 Page({
     data: {
         detail: [{
@@ -58,6 +24,12 @@ Page({
         day: '',
         time: '',
         seat: '',
+        num: [{'id': '00000', 'num': 0}, {'id': '00001', 'num': 0}, {'id': '00002', 'num': 0},
+        {'id': '00003', 'num': 0}, {'id': '00004', 'num': 0}, {'id': '00100', 'num': 0},
+        {'id': '00101', 'num': 0}, {'id': '00102', 'num': 0}, {'id': '00103', 'num': 0},
+        {'id': '00104', 'num': 0}, {'id': '00200', 'num': 0}, {'id': '00201', 'num': 0},
+        {'id': '00202', 'num': 0}, {'id': '00203', 'num': 0}, {'id': '00204', 'num': 0},
+        {'id': '00205', 'num': 0}, {'id': '00300', 'num': 0}, {'id': '00301', 'num': 0}]
     },
 
     onShow() {
@@ -69,7 +41,11 @@ Page({
         
         let number = wx.getStorageSync('number_sto') || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+<<<<<<< HEAD
         console.log(number);
+=======
+
+>>>>>>> temp
         // console.log(temp);
         let i = 0;
         for (; i < 4; i++) {
@@ -82,6 +58,10 @@ Page({
             time: time,
             detail: detail,
         });
+        // let detailtime = this.data.day + ' ' + this.data.time; // from myself
+        // console.log(detailtime);
+
+        // console.log(getNowFormatDate());//from hr 
     },
 
     detailItems: function (e) {
@@ -91,6 +71,10 @@ Page({
     },
 
     submit: function (e) {
+        let number = wx.getStorageSync('number_sto') || this.data.num;
+        // console.log('submit');
+        // console.log(wx.getStorageSync('seatInfo'));
+        let seatInfo = wx.getStorageSync('seatInfo')
         //请求获取数据
         wx.request({
             url: 'http://120.79.152.109/api.php',
@@ -101,9 +85,8 @@ Page({
                 item_2: '00100',
                 item_3: '00300',
                 orderTime: this.data.time,
-                addTime: getNowFormatDate(),
+                addTime: this.data.day + ' ' + this.data.time,
                 date: this.data.day
-
             },
             method: 'GET',
             success: res => {
