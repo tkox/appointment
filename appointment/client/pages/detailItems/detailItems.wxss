@@ -1,0 +1,95 @@
+.title {
+    padding: 10rpx;
+    border-bottom: 2rpx solid #000;
+}
+
+.title-item {
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    margin: 8rpx;
+    border-bottom: 2rpx dashed #000;
+}
+
+.title-discription {
+    margin: 8rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    border-bottom: 2rpx solid #000;
+}
+
+.text-mini {
+    color: #cfbfbf;
+    font-size: 34rpx;
+}
+
+.text-middle {
+    margin: 8rpx;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #000;
+    font-size: 36rpx;
+    color: #52525c;
+}
+
+.item {
+    display: flex;
+    font-size: 36rpx;
+    padding: 10rpx;
+    border-bottom: 2rpx solid #52525c;
+    color: #393939;
+}
+
+.item-bottom {
+    display: flex;
+    font-size: 36rpx;
+    padding: 10rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx dashed #52525c;
+    color: #393939;
+}
+
+.stepper {  
+    width: 60px;  
+    height: 26px;  
+    /*给主容器设一个边框*/  
+    border: 1px solid #ccc;  
+    border-radius: 3px;  
+    margin:0 auto;  
+}  
+  
+/*加号和减号*/  
+.stepper text {  
+    width: 19px;  
+    line-height: 26px;  
+    text-align: center;  
+    float: left;  
+}  
+  
+/*普通样式*/  
+.stepper .normal{  
+    color: black;  
+}  
+  
+.number {
+    height: 26px;  
+    float: left;  
+    font-size: 12px;  
+    /*给中间的input设置左右边框即可*/  
+    border-left: 1px solid #ccc;  
+    border-right: 1px solid #ccc;
+    border-radius: 16rpx;
+}
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}
+
+.img {
+    padding-left: 20rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.fixed {
+    width: 144px;
+}

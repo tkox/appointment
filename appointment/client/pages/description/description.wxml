@@ -1,0 +1,29 @@
+<view class="main">
+    <view class="categroy-left">
+        <view wx:for="{{category}}" wx:for-index="idx"  wx:key="category" class="cate-list{{curIndex == idx ? '-on' : ''}}">
+            <text bindtap="switchTab" data-idx="{{idx}}" data-id="{{item.id}}">{{item.name}}</text>
+            <view wx:for="{{itemArr}}"  wx:key="itemArr" wx:if="{{item.idx == idx}}" >
+                <view class="item-arr{{index == toViewItem ? '-active' : ''}}" bindtap="switchTabItem" data-idx="{{idx}}" data-index="{{index}}">
+                    <text  hidden="{{idx == curIndex ? false : true}}">{{item.name}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="categroy-right">
+        <block wx:for="{{description}}" wx:key="description">
+            <view id="{{item.id}}" class="cate-box">
+                <view class="description-text">
+                    <text hidden="{{item.id === toView ? (toViewItem > - 1 ? true : false) : true}}">{{item.info}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:for="{{descriptionItem}}" wx:key="descriptionItem">
+            <view id="{{item.id}}" class="cate-box">
+                <view class="description-text">
+                    <text hidden="{{item.id == toViewItem ? false : true}}">{{item.info}}</text>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

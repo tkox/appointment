@@ -1,0 +1,124 @@
+/* pages/member/member.wxss */
+.clubCardUp{
+    width:625rpx;
+    height:225rpx;
+    margin-top:30rpx;
+    margin-left:40rpx;
+    margin-right:40rpx;
+    padding:20rpx;
+    border: 3rpx #c0c0c0 solid;
+    border-bottom: 2rpx #c0c0c0 dashed;
+    border-top-left-radius:20rpx;
+    border-top-right-radius:20rpx;
+    background-color:#ffffff;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.clubCardDown{
+    width:645rpx;
+    height:35rpx;
+    margin-left:40rpx;
+    margin-right:40rpx; 
+    margin-bottom:40rpx;
+    padding:5px;   
+    border: 3rpx #c0c0c0 solid;
+    border-top: 2rpx #c0c0c0 dashed;
+    border-bottom-left-radius:20rpx;
+    border-bottom-right-radius:20rpx;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+.cardM{
+    width:550rpx;
+    display:flex;
+    flex-direction:row; 
+}
+.kuiImage{
+    width:200rpx;
+    height:230rpx;
+    margin-right:45rpx;
+}
+.cardMes{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+.cardText{
+    font-size: 30rpx;
+}
+.QRIm{
+    width:65rpx;
+    height:65rpx;
+}
+.cardT{
+    font-size:26rpx;
+    color:#c0c0c0;
+    
+}
+.tip{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.therapist{
+    width:300rpx;
+    height:150rpx;
+    border-right:1rpx #c0c0c0 solid;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
+.suggest{
+    width:300rpx;
+    height:150rpx;
+    margin-bottom:10rpx;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
+.tipT{
+    font-size:30rpx;
+}
+
+.list{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+.listS{
+    width:80%;
+    height:80rpx;
+    border-top:1rpx #c0c0c0 solid;
+    padding-left:40rpx;
+    padding-right:40rpx;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
+.listS1{
+    width:80%;
+    height:80rpx;
+    border-top:1rpx #c0c0c0 solid;
+    border-bottom:1rpx #c0c0c0 solid;
+    padding-left:40rpx;
+    padding-right:40rpx;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
+.listT{
+    font-size:30rpx;
+}
+.listTC{
+    font-size:30rpx;
+    color:#c0c0c0;
+}

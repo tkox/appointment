@@ -1,0 +1,5 @@
+.content {
+    display: flex;
+    margin: 20rpx;
+    padding: 20rpx;
+}
